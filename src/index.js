@@ -1,21 +1,13 @@
 const express = require('express')
 const mongoose = require('mongoose')
-const app = express()
-const port = 3000
 const employeeRoutes = require('./routes/employee.routes')
 
+const app = express()
+const port = 3000
+
+require('newrelic');
 require('dotenv').config()
 
-const logger = (req, res, next) => {
-  console.log(req.url)
-  console.log(req.params)
-  console.log(req.body)
-  console.log(req.query)
-  console.log('\n')
-  next()
-}
-
-app.use(logger)
 app.use(express.json())
 
 app.use('/api/employee', employeeRoutes)
