@@ -5,7 +5,6 @@ const employeeRoutes = require('./routes/employee.routes')
 const app = express()
 const port = 3000
 
-require('newrelic');
 require('dotenv').config()
 
 app.use(express.json())
